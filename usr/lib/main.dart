@@ -1,1 +1,38 @@
-import 'package:flutter/material.dart';\nimport 'screens/home_screen.dart';\nimport 'screens/cart_screen.dart';\nimport 'screens/restaurant_admin_screen.dart';\n\nvoid main() {\n  runApp(const FoodDeliveryApp());\n}\n\nclass FoodDeliveryApp extends StatelessWidget {\n  const FoodDeliveryApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      title: 'Food Delivery App',\n      debugShowCheckedModeBanner: false,\n      theme: ThemeData(\n        colorScheme: ColorScheme.fromSeed(\n          seedColor: Colors.orange,\n          brightness: Brightness.light,\n        ),\n        useMaterial3: true,\n      ),\n      initialRoute: '/',\n      routes: {\n        '/': (context) => const HomeScreen(),\n        '/cart': (context) => const CartScreen(),\n        '/admin': (context) => const RestaurantAdminScreen(),\n      },\n    );\n  }\n}\n
+import 'package:flutter/material.dart';
+import 'screens/home_screen.dart';
+import 'screens/cart_screen.dart';
+import 'screens/restaurant_admin_screen.dart';
+import 'screens/role_selection_screen.dart';
+import 'screens/customer/customer_home_screen.dart';
+import 'screens/restaurant/restaurant_home_screen.dart';
+
+void main() {
+  runApp(const FoodDeliveryApp());
+}
+
+class FoodDeliveryApp extends StatelessWidget {
+  const FoodDeliveryApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Food Delivery App',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.orange,
+          brightness: Brightness.light,
+        ),
+        useMaterial3: true,
+      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const RoleSelectionScreen(),
+        '/customer': (context) => const CustomerHomeScreen(),
+        '/restaurant': (context) => const RestaurantHomeScreen(),
+        '/cart': (context) => const CartScreen(),
+        '/admin': (context) => const RestaurantAdminScreen(),
+      },
+    );
+  }
+}
